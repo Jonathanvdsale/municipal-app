@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Address Locator</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+  <style type="text/css">
+    
+    .container{
+    width: 50%;
+    padding-top: 25px;
+    }
+
+    .body{
+      padding-top: 100px;
+    }
+
+    .btn i{
+      font-size: 1rem;
+      margin-right: 2px;
+    }
+
+    }
+  </style>
+  <body>
+    <div class="container">
+      <button id="find-me" class="btn"><i class="material-icons right">add_location</i>Use My Location</button>
+      <p id = "status"></p>
+      <a id = "map-link" target="_blank"></a>
+      <div class="input-field">
+        <input id="latitude" type="text">
+        <label class="active" for="latitude">Latitude</label>
+      </div>
+      <div class="input-field">
+        <input type="text">
+        <label class="active" for="longitude">Longitude</label>
+      </div>
+      <div class="input-field">
+        <input class="input_fields" id="locality" type="text">
+        <label class="active" for="locality">Name/Bus Number</label>
+      </div>
+      <div class="input-field">
+        <input class="input_fields" id="locality" type="text">
+        <label class="active" for="locality">Phone # (if applicable)</label>
+      </div>
+      <p>
+        <label>
+          <input name="group1" type="radio" checked />
+          <span>Bus</span>
+        </label>
+      </p>
+      <p>
+        <label>
+          <input name="group1" type="radio" checked />
+          <span>Taxi</span>
+        </label>
+      </p>
+      <button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
+    </div>
+    <script>
+    function geoFindMe() {
+
+        const status = document.querySelector('#status');
+        const mapLink = document.querySelector('#map-link');
+
+        mapLink.href = '';
+        mapLink.textContent = '';
+
+      function success(position) {
+        const latitude  = position.coords.latitude;
+        const longitude = position.coords.longitude;
+        };
+
+      function error() {
+        status.textContent = 'Unable to retrieve your location';
+      }
+
+      if (!navigator.geolocation) {
+        status.textContent = 'Geolocation is not supported by your browser';
+      } else {
+        status.textContent = 'Locating…';
+        navigator.geolocation.getCurrentPosition(success, error);
+      }
+
+    }
+    document.querySelector('#find-me').addEventListener('click', geoFindMe);
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARJQk4QgZED48tTVGEaKb8xHcW81e2jHU"></script>
+  </body>
+</html>
+
+    

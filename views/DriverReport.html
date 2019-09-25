@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JamMaps</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+        <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css">
+    </head>
+    <!--Navbar-->
+    <body>
+           <!--Form Setup-->
+            <div class="row" style="width: 30%; margin: 25px auto;">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title text-center">Report a sighting! <span class="glyphicon glyphicon-map-marker"></span></h2>
+                    </div>
+                    <div class="panel-body">
+                        <form action="/map" method="POST">
+                            <label class="radio control-label">Sighting</label>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="radiopolice" >
+                                    Police
+                                </label>
+                            </div>
+                            <div class="radio" required>
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="radioaccident">
+                                    Accident
+                                </label>
+                            </div>
+                              <div class="radio" required>
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="radiocrime">
+                                    Crime 
+                                </label>
+                            </div>
+                             <div class="radio" required>
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="radioconstruction">
+                                    Construction
+                                </label>
+                            </div>
+                            <div class="radio" required>
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="radioconstruction">
+                                    Landslide 
+                                </label>
+                            </div>
+                            <div class="radio" required>
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="radioconstruction">
+                                    Heavy Traffic
+                                </label>
+                            </div>
+                            <div class="radio" required>
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="radioconstruction">
+                                    Crime 
+                                </label>
+                            </div>
+                            <div class="radio" required>
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="radioconstruction">
+                                    Flood
+                                </label>
+                            </div>
+                             <div class="radio" required>
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="radioconstruction">
+                                    Dangerous Pothole
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label for="latitude">Latitude</label>
+                                <input type="number" class="form-control" id="latitude" ng-model="formData.latitude">
+                            </div>
+                            <div class="form-group">
+                                <label for="longitude">Longitude</label>
+                                <input type="number" class="form-control" id="longitude" ng-model="formData.longitude">
+                            </div>
+                            <button type="submit" class="btn btn-danger btn-block">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <script>
+                navigator.geolocation.getCurrentPosition(function(position) {
+                 do_something(position.coords.latitude, position.coords.longitude);
+                });
+            </script>
+        </div>
+    </body>
+</html>
